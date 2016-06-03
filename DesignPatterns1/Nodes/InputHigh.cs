@@ -23,6 +23,11 @@ namespace DesignPatterns1.Nodes
             return new InputHigh();
         }
 
+        public override int calculate()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void show()
         {
             throw new NotImplementedException();

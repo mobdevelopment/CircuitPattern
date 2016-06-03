@@ -63,12 +63,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FactoryMethod.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Nodes\And.cs" />
+    <Compile Include="Nodes\InputHigh.cs" />
+    <Compile Include="Nodes\InputLow.cs" />
+    <Compile Include="Nodes\Nand.cs" />
+    <Compile Include="Nodes\Node.cs" />
+    <Compile Include="Nodes\Nor.cs" />
+    <Compile Include="Nodes\Not.cs" />
+    <Compile Include="Nodes\Or.cs" />
+    <Compile Include="Nodes\Probe.cs" />
+    <Compile Include="Nodes\Xor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

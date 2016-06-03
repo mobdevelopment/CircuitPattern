@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns1.Nodes
 {
-    public class Xor : Node
+    public class Xor : Calculatable
     {
         public Xor()
         {
@@ -21,6 +21,16 @@ namespace DesignPatterns1.Nodes
         public override object Clone()
         {
             return new Xor();
+        }
+
+        public override int calculate()
+        {
+            int positives = 0;
+            foreach (Node node in previous)
+            {
+                if (node.getValue() > 0) positives++;
+            }
+            return (positives == 1) ? 1 : 0;
         }
 
         public override void show()

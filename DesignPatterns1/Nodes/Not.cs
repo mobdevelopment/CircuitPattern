@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns1.Nodes
 {
-    public class Not : Node
+    public class Not : Calculatable
     {
         public Not()
         {
@@ -21,6 +21,11 @@ namespace DesignPatterns1.Nodes
         public override object Clone()
         {
             return new Not();
+        }
+
+        public override int calculate()
+        {
+            return (previous.First().getValue() >= 1) ? 0 : 1;
         }
 
         public override void show()
