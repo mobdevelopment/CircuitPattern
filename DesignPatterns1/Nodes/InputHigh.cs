@@ -6,31 +6,26 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns1.Nodes
 {
-    public class Xor : Calculatable
+    public class InputHigh : Node
     {
-        public Xor()
+        public InputHigh()
         {
 
         }
 
         public override string getKey()
         {
-            return "XOR";
+            return "INPUT_HIGH";
         }
 
         public override object Clone()
         {
-            return new Xor();
+            return new InputHigh();
         }
 
         public override int calculate()
         {
-            int positives = 0;
-            foreach (Node node in previous)
-            {
-                if (node.getValue() > 0) positives++;
-            }
-            return (positives == 1) ? 1 : 0;
+            throw new NotImplementedException();
         }
 
         public override void show()

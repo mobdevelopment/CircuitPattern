@@ -15,3 +15,6 @@ c:\users\mikes\onedrive\documenten\visual studio 2015\Projects\DesignPatterns1\D
 C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\bin\Debug\DesignPatterns1.exe.config
 C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.exe
 C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.pdb
+C:\Users\Mark\School\8-AII1516-Design Patterns 1\Assessment\DesignPatterns1\bin\Debug\DesignPatterns1.exe.config
+C:\Users\Mark\School\8-AII1516-Design Patterns 1\Assessment\DesignPatterns1\obj\Debug\DesignPatterns1.exe
+C:\Users\Mark\School\8-AII1516-Design Patterns 1\Assessment\DesignPatterns1\obj\Debug\DesignPatterns1.pdb

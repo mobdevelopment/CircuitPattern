@@ -6,31 +6,21 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns1.Nodes
 {
-    public class Xor : Calculatable
+    public class Probe : Node
     {
-        public Xor()
+        public Probe()
         {
 
         }
 
         public override string getKey()
         {
-            return "XOR";
+            return "PROBE";
         }
 
         public override object Clone()
         {
-            return new Xor();
-        }
-
-        public override int calculate()
-        {
-            int positives = 0;
-            foreach (Node node in previous)
-            {
-                if (node.getValue() > 0) positives++;
-            }
-            return (positives == 1) ? 1 : 0;
+            return new Probe();
         }
 
         public override void show()
