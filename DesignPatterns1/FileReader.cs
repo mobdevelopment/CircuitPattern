@@ -10,9 +10,11 @@ namespace DesignPatterns1
 {
     public class FileReader
     {
+        // VALIDATE METHOD
+        private Dictionary<String, Node> nodeMap = new Dictionary<String, Node>();
+
         public FileReader(String fileName)
         {
-            Dictionary<String, Node> nodeMap = new Dictionary<String, Node>();
             try
             {
                 using (StreamReader file = new StreamReader(fileName))
@@ -22,10 +24,8 @@ namespace DesignPatterns1
                     bool connectNode = false;
                     while ((line = file.ReadLine()) != null)
                     {
-                        string thing = "";
                         if (!connectNode)
                         {
-                            thing = "Node";
                             if (!line.StartsWith("#") && line != String.Empty)
                             {
                                 // Get node name
@@ -41,14 +41,17 @@ namespace DesignPatterns1
                         }
                         else
                         {// start connecting nodes
-                            thing = "Connection";
                             // Get node name
                             string nodeName = getNodeName(line);
                             // Get node connections
                             string[] nodeConnections = getNodeConnections(line);
+                            List<Node> nodes = new List<Node>();
+                            foreach (string connection in nodeConnections)
+                            {
+                                nodes.Add(nodeMap[connection]);
+                            }
+                            nodeMap[nodeName].addNexts(nodes);
                         }
-                        // add node array to circuit array (String name, String type, array connections
-
                     } // end while
                     file.Close();
                 }
@@ -108,6 +111,16 @@ namespace DesignPatterns1
                 }
             //}
             //return ;
+        }
+
+        public Dictionary<String, Node>getNodes()
+        {
+            return nodeMap;
+        }
+
+        private Boolean ValidateCircuit()
+        {
+            return true : false;
         }
     }
 }

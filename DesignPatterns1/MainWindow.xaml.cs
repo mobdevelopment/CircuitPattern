@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
+using DesignPatterns1.Nodes;
 
 namespace DesignPatterns1
 {
@@ -23,7 +24,7 @@ namespace DesignPatterns1
     public partial class MainWindow : Window
     {
         FileReader reader;
-
+        Dictionary<String, Node> nodeMap;
 
         public MainWindow()
         {
@@ -39,11 +40,19 @@ namespace DesignPatterns1
                 Console.WriteLine("MainWindow - OpenFile:: File can be read");
                 reader = new FileReader(openFileDialog.FileName);
             }
+
+            loadNodeScreen();
         }
 
         private void ExitProgram(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void loadNodeScreen()
+        {
+            nodeMap = reader.getNodes();
+
         }
     }
 }

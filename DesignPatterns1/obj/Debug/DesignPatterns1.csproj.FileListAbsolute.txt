@@ -18,3 +18,14 @@ C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatt
 C:\Users\Mark\School\8-AII1516-Design Patterns 1\Assessment\DesignPatterns1\bin\Debug\DesignPatterns1.exe.config
 C:\Users\Mark\School\8-AII1516-Design Patterns 1\Assessment\DesignPatterns1\obj\Debug\DesignPatterns1.exe
 C:\Users\Mark\School\8-AII1516-Design Patterns 1\Assessment\DesignPatterns1\obj\Debug\DesignPatterns1.pdb
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.csprojResolveAssemblyReference.cache
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\MainWindow.g.cs
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\App.g.cs
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1_MarkupCompile.cache
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1_MarkupCompile.lref
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\bin\Debug\DesignPatterns1.exe
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\bin\Debug\DesignPatterns1.pdb
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\MainWindow.baml
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.g.resources
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.Properties.Resources.resources
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.csproj.GenerateResource.Cache
