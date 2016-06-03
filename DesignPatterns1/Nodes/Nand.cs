@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns1.Nodes
 {
-    class Nand
+    public class Nand : Node
     {
+        public Nand()
+        {
+
+        }
+
+        public override string getKey()
+        {
+            return "NAND";
+        }
+
+        public override object Clone()
+        {
+            return new Nand();
+        }
+
+        public override void show()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

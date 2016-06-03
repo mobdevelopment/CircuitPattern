@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns1.Nodes
 {
-    class Nor
+    public class Nor : Node
     {
+        public Nor()
+        {
+
+        }
+
+        public override string getKey()
+        {
+            return "NOR";
+        }
+
+        public override object Clone()
+        {
+            return new Nor();
+        }
+
+        public override void show()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
