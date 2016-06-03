@@ -22,6 +22,9 @@ namespace DesignPatterns1
     /// </summary>
     public partial class MainWindow : Window
     {
+        FileReader reader;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,16 +32,18 @@ namespace DesignPatterns1
 
         private void OpenFile(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("You clicked 'File'");
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            if (openFileDialog.ShowDialog() == true) { }
-               // txtEditor.Text = File.ReadAllText(openFileDialog.FileName);
+
+            if (openFileDialog.ShowDialog() == true) {
+                Console.WriteLine("MainWindow - OpenFile:: File can be read");
+                reader = new FileReader(openFileDialog.FileName);
+            }
         }
 
         private void ExitProgram(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("You clicked 'Exit'");
+            Application.Current.Shutdown();
         }
     }
 }

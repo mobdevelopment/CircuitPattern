@@ -69,6 +69,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Nodes\And.cs" />
+    <Compile Include="Nodes\Nand.cs" />
+    <Compile Include="Nodes\Nor.cs" />
+    <Compile Include="Nodes\Not.cs" />
+    <Compile Include="Nodes\Or.cs" />
+    <Compile Include="Nodes\Xor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
