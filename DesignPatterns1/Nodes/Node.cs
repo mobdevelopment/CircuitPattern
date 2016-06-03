@@ -45,6 +45,14 @@ namespace DesignPatterns1.Nodes
             node.addPrevious(this);
         }
 
+        public void addNexts(List<Node> nodes)
+        {
+            foreach(Node node in nodes)
+            {
+                addNext(node);
+            }
+        }
+
         public int getValue()
         {
             return this.value;

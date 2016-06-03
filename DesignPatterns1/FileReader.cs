@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DesignPatterns1.Nodes;
 
 namespace DesignPatterns1
 {
@@ -11,7 +12,7 @@ namespace DesignPatterns1
     {
         public FileReader(String fileName)
         {
-            List<String> circuit;
+            Dictionary<String, Node> nodeMap = new Dictionary<String, Node>();
             try
             {
                 using (StreamReader file = new StreamReader(fileName))
@@ -29,8 +30,9 @@ namespace DesignPatterns1
                             {
                                 // Get node name
                                 string nodeName = getNodeName(line);
-                                // Get Node type beginning and ending
+                                // Get Node type
                                 string nodeType = getNodeType(line);
+                                nodeMap.Add(nodeName, Node.create(nodeType));
                             }
                             else if (line == String.Empty)
                             {
@@ -40,7 +42,6 @@ namespace DesignPatterns1
                         else
                         {// start connecting nodes
                             thing = "Connection";
-
                             // Get node name
                             string nodeName = getNodeName(line);
                             // Get node connections
@@ -50,15 +51,11 @@ namespace DesignPatterns1
 
                     } // end while
                     file.Close();
-                    Console.Write("END READING FILE");
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
-            }
-            finally
-            {
+                Console.WriteLine("Error: Could not read file from disk. Original error: " + ex.Message);
             }
         }
 
