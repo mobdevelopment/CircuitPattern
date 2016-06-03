@@ -12,3 +12,6 @@ c:\users\mikes\onedrive\documenten\visual studio 2015\Projects\DesignPatterns1\D
 c:\users\mikes\onedrive\documenten\visual studio 2015\Projects\DesignPatterns1\DesignPatterns1\obj\Debug\DesignPatterns1.csproj.GenerateResource.Cache
 c:\users\mikes\onedrive\documenten\visual studio 2015\Projects\DesignPatterns1\DesignPatterns1\obj\Debug\DesignPatterns1.exe
 c:\users\mikes\onedrive\documenten\visual studio 2015\Projects\DesignPatterns1\DesignPatterns1\obj\Debug\DesignPatterns1.pdb
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\bin\Debug\DesignPatterns1.exe.config
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.exe
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.pdb
