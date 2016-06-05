@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DesignPatterns1.Nodes;
 
 namespace DesignPatterns1
 {
     public class FileReader
     {
+        Circuit circuit = new Circuit();
         // VALIDATE METHOD
         private Dictionary<String, Node> nodeMap = new Dictionary<String, Node>();
 
@@ -22,8 +20,11 @@ namespace DesignPatterns1
                     // Read and display lines from the file until the end of the file is reached.
                     string line;
                     bool connectNode = false;
+                    int i = 0;
                     while ((line = file.ReadLine()) != null)
                     {
+                        Console.WriteLine(i + ":: " +line);
+                        i++;
                         if (!connectNode)
                         {
                             if (!line.StartsWith("#") && line != String.Empty)
@@ -41,16 +42,20 @@ namespace DesignPatterns1
                         }
                         else
                         {// start connecting nodes
-                            // Get node name
-                            string nodeName = getNodeName(line);
-                            // Get node connections
-                            string[] nodeConnections = getNodeConnections(line);
-                            List<Node> nodes = new List<Node>();
-                            foreach (string connection in nodeConnections)
+                            if (!line.StartsWith("#") && line != String.Empty)
                             {
-                                nodes.Add(nodeMap[connection]);
+                                // Get node name
+                                string nodeName = getNodeName(line);
+                                // Get node connections
+                                setNodeConnections(line);
+                                string[] nodeConnections = getNodeConnections();
+                                List<Node> nodes = new List<Node>();
+                                foreach (string connection in nodeConnections)
+                                {
+                                    nodes.Add(nodeMap[connection]);
+                                }
+                                nodeMap[nodeName].addNexts(nodes);
                             }
-                            nodeMap[nodeName].addNexts(nodes);
                         }
                     } // end while
                     file.Close();
@@ -59,6 +64,13 @@ namespace DesignPatterns1
             catch (Exception ex)
             {
                 Console.WriteLine("Error: Could not read file from disk. Original error: " + ex.Message);
+            }
+            finally
+            {
+                if (circuit.validateCircuit())
+                { 
+                    circuit.Nodes = getNodes();
+                }
             }
         }
 
@@ -87,40 +99,47 @@ namespace DesignPatterns1
             return nodeType;
         }
 
-        private String[] getNodeConnections(string line)
+        private void setNodeConnections(string line)
         {
+            string[] nodeConnections;
             int nodeConnectStart = line.IndexOf("	");
             int nodeConnectEnd = line.IndexOf(";");
 
-            //if (nodeConnectStart > 0)
-            //{
+            if (nodeConnectStart > 0)
+            {
                 string nodeConnectAll = line.Substring(nodeConnectStart + 1, nodeConnectEnd - (nodeConnectStart + 1));
-                string[] nodeConnections;
+                
                 if (nodeConnectAll.Contains(","))
                 {
                     // Node has multiple connections
                     nodeConnections = nodeConnectAll.Split(',');
-                    return nodeConnections;
+                    nodeConn = nodeConnections;
                 }
                 else
                 {
                     // Node has single connection
                     nodeConnections = new string[1];
                     nodeConnections[0] = nodeConnectAll;
-                    return nodeConnections;
+                    nodeConn = nodeConnections;
                 }
-            //}
-            //return ;
+            }
         }
 
-        public Dictionary<String, Node>getNodes()
+        public Dictionary<String, Node> getNodes()
         {
             return nodeMap;
         }
 
-        private Boolean ValidateCircuit()
+        //private Boolean ValidateCircuit()
+        //{
+        //    return true;
+        //}
+
+        string[] nodeConn;
+
+        public String[] getNodeConnections()
         {
-            return true : false;
+            return nodeConn;
         }
     }
 }

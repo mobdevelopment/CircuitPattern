@@ -25,6 +25,10 @@ namespace DesignPatterns1.Nodes
 
         public override int calculate()
         {
+            // 0 0 = 0
+            // 0 1 = 1
+            // 1 0 = 1
+            // 1 1 = 0
             int positives = 0;
             foreach (Node node in previous)
             {

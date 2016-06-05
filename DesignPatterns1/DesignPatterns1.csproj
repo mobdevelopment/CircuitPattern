@@ -63,6 +63,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Circuit\Circuit.cs" />
+    <Compile Include="Circuit\CircuitTester.cs" />
     <Compile Include="FactoryMethod.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="MainWindow.xaml.cs">

@@ -25,6 +25,8 @@ namespace DesignPatterns1.Nodes
 
         public override int calculate()
         {
+            // 0 = 1
+            // 1 = 0
             return (previous.First().getValue() >= 1) ? 0 : 1;
         }
 

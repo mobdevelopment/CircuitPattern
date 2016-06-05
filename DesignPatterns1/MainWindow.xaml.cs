@@ -24,7 +24,7 @@ namespace DesignPatterns1
     public partial class MainWindow : Window
     {
         FileReader reader;
-        Dictionary<String, Node> nodeMap;
+        //Dictionary<String, Node> nodeMap;
 
         public MainWindow()
         {
@@ -49,9 +49,30 @@ namespace DesignPatterns1
             Application.Current.Shutdown();
         }
 
+        private void StartCircuit(object sender, RoutedEventArgs e)
+        {
+            //Console.WriteLine((sender as MenuItem).Header.ToString());
+            Console.WriteLine("Start Circuit");
+        }
+
         private void loadNodeScreen()
         {
-            nodeMap = reader.getNodes();
+            circuitNodes = reader.getNodes();
+
+            foreach (KeyValuePair<string, Node> node in CircuitNodes)
+            {
+                Console.WriteLine(node.Key);
+            }
+            DataContext = this;
+        }
+
+        ////public ObserveableDictionary<String, Node> _CN { get; set; }
+
+        Dictionary<String, Node> circuitNodes;
+
+        public Dictionary<String, Node> CircuitNodes
+        {
+            get { return this.circuitNodes; }
 
         }
     }
