@@ -48,11 +48,13 @@ namespace DesignPatterns1
         {
             Application.Current.Shutdown();
         }
-
+        public String CircuitCheck;
         private void StartCircuit(object sender, RoutedEventArgs e)
         {
             //Console.WriteLine((sender as MenuItem).Header.ToString());
             Console.WriteLine("Start Circuit");
+            CircuitCheck = new string('a', 6);
+
         }
 
         private void loadNodeScreen()

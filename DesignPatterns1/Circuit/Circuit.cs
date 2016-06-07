@@ -52,16 +52,9 @@ namespace DesignPatterns1
         {
             if (tester.CircuitTest(nodes))
             {
-                Console.WriteLine("Circuit is correctly build");
-                //foreach (KeyValuePair<string, Node> node in Nodes)
-                //{
-                //    Console.WriteLine(node.Key);
-                //}
                 return true;
             } else
             {
-                Console.WriteLine("Circuit is incorrectly build");
-
                 return false;
             }
         }

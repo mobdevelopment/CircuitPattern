@@ -19,7 +19,6 @@ namespace DesignPatterns1
 
         public CircuitTester()
         {
-            //Nodes = _nodes;
         }
 
         public Boolean CircuitTest(Dictionary<String, Node> nodes)
@@ -151,7 +150,5 @@ namespace DesignPatterns1
             Console.WriteLine("NodeConnection:: FALSE");
             return false;
         }
-
-
     }
 }
