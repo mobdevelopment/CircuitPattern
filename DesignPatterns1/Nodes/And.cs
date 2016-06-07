@@ -31,10 +31,6 @@ namespace DesignPatterns1.Nodes
             // 1 1 = 1
             foreach (Node node in previous)
             {
-                //if (node.getValue() < 0) // de value van een node zal nooit kleiner zijn dan 0
-                //{
-                //   return 0;
-                //}
                 if (node.Value == 0) return 0;
             }
             return 1;

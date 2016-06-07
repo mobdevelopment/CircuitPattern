@@ -54,11 +54,6 @@ namespace DesignPatterns1.Nodes
             }
         }
 
-        //public int getValue()
-        //{
-        //    return this.value;
-        //}
-
         public int Value
         {
             get
