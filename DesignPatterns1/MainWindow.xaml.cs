@@ -52,7 +52,21 @@ namespace DesignPatterns1
         private void StartCircuit(object sender, RoutedEventArgs e)
         {
             //Console.WriteLine((sender as MenuItem).Header.ToString());
-            Console.WriteLine("Start Circuit");
+            if (!(CircuitNodes.Count() > 0))
+            {
+                Console.WriteLine("Laad eerst een circuit in");
+            } else
+            {
+                Console.WriteLine("Start Circuit");
+                foreach (Node startPoint in CircuitNodes.Values)
+                {
+                    Type t = typeof(Input);
+                    if (!(startPoint is Input)) continue;
+
+                    Console.WriteLine(startPoint.getKey());
+                }
+                Console.WriteLine("Circuit afgelopen");
+            }
         }
 
         private void loadNodeScreen()

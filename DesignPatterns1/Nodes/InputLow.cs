@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns1.Nodes
 {
-    public class InputLow : Node
+    public class InputLow : Input
     {
         public InputLow()
         {

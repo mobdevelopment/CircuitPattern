@@ -34,7 +34,8 @@ namespace DesignPatterns1.Nodes
             {
                 if (node.getValue() > 0) positives++;
             }
-            return (positives == 1) ? 1 : 0;
+            value = (positives == 1) ? 1 : 0;
+            return value;
         }
 
         public override void show()

@@ -27,7 +27,9 @@ namespace DesignPatterns1.Nodes
         {
             // 0 = 1
             // 1 = 0
-            return (previous.First().getValue() >= 1) ? 0 : 1;
+
+            this.value = (previous.First().getValue() >= 1) ? 0 : 1;
+            return value; 
         }
 
         public override void show()

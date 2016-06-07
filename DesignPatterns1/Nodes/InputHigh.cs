@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns1.Nodes
 {
-    public class InputHigh : Node
+    public class InputHigh : Input
     {
         public InputHigh()
         {
