@@ -5,39 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesignPatterns1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="400"
-        DataContext="{Binding Circuit}">
+        Title="MainWindow" Height="350" Width="400">
     
-    <DockPanel>
+    <StackPanel>
+        <StackPanel>
         <Menu DockPanel.Dock="Top" IsMainMenu="True">
             <MenuItem Header="_File" Click="OpenFile"/>
             <MenuItem Header="_Start" Click="StartCircuit" />
             <MenuItem Header="_Exit" Click="ExitProgram"/>
         </Menu>
-
-        <DataGrid x:Name="dataGrid" VerticalAlignment="Top" ItemsSource="{Binding Path=CircuitNodes}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Node" Width="*" Binding="{Binding Path=Key}"></DataGridTextColumn>
+        <TextBlock Name="validCircuit" Text="{Binding Path=CircuitCheck}" Height="25" Margin="0,0,0,0" />
+        </StackPanel>
+        <StackPanel>
+            <DataGrid x:Name="dataGrid" VerticalAlignment="Top" ItemsSource="{Binding Path=CircuitNodes}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Node" Width="*" Binding="{Binding Path=Key}"></DataGridTextColumn>
                 
-                <!--<DataGridTextColumn Header="Type" Width="*" Binding="{Binding Path=Value.getKey}"></DataGridTextColumn>-->
+                    <!--<DataGridTextColumn Header="Type" Width="*" Binding="{Binding Path=Value.getKey}"></DataGridTextColumn>-->
                 
-                <!--<DataGridTemplateColumn Header="Value" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding InsertedValue}" IsReadOnly="False"></TextBox>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
-                
-                <!--<DataGridTemplateColumn Header="Edit" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Save" Command="{Binding a}" Width="80"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
-            </DataGrid.Columns>
-        </DataGrid>
-
-    </DockPanel>
+                    <!--<DataGridTemplateColumn Header="Value" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding InsertedValue}" IsReadOnly="False"></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                 
+                    <!--<DataGridTemplateColumn Header="Edit" Width="*">
+                       <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Save" Command="{Binding a}" Width="80"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </StackPanel>
 </Window>

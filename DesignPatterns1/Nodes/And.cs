@@ -29,12 +29,12 @@ namespace DesignPatterns1.Nodes
             // 0 1 = 0
             // 1 0 = 0
             // 1 1 = 1
-            value = 1;
+            Value = 1;
             foreach (Node node in previous)
             {
-                if (node.getValue() == 0) value = 1;
+                if (node.Value == 0) Value = 0;
             }
-            return value;
+            return Value;
         }
 
         public override void show()

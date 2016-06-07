@@ -32,10 +32,10 @@ namespace DesignPatterns1.Nodes
             int positives = 0;
             foreach (Node node in previous)
             {
-                if (node.getValue() > 0) positives++;
+                if (node.Value > 0) positives++;
             }
-            value = (positives == 1) ? 1 : 0;
-            return value;
+            Value = (positives == 1) ? 1 : 0;
+            return Value;
         }
 
         public override void show()

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using DesignPatterns1.Nodes;
+using System.ComponentModel;
 
 namespace DesignPatterns1
 {
-    public class FileReader
+    public class FileReader : INotifyPropertyChanged
     {
         Circuit circuit;
         // VALIDATE METHOD
@@ -63,15 +64,12 @@ namespace DesignPatterns1
             }
             catch (Exception ex)
             {
-                Console.WriteLine("SError: Could not read file from disk. Original error: " + ex.Message);
+                Console.WriteLine("Error: Could not read file from disk. Original error: " + ex.Message);
             }
             finally
             {
                 circuit = new Circuit(getNodes());
                 bool a = circuit.validateCircuit();
-                //{ 
-                    //circuit.Nodes = getNodes();
-                //}
             }
         }
 
@@ -131,12 +129,9 @@ namespace DesignPatterns1
             return nodeMap;
         }
 
-        //private Boolean ValidateCircuit()
-        //{
-        //    return true;
-        //}
-
         string[] nodeConn;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public String[] getNodeConnections()
         {
