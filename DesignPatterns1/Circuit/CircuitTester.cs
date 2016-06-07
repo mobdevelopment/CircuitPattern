@@ -30,13 +30,68 @@ namespace DesignPatterns1
 
             if(floodTest && connectTest)
             {
+                Console.WriteLine("CircuitTest:: TRUE");
                 return true;
             }
+            Console.WriteLine("CircuitTest:: FALSE");
             return false;
         }
 
         public Boolean FloodFill(Dictionary<String, Node> nodes)
         {
+            int visit = nodes.Count();
+            while (visit > 0)
+            {
+                int impossibleCircuit = visit;
+                foreach (KeyValuePair<String, Node> node in nodes)
+                {
+                    if (!node.Value.getVisited())
+                    {
+                        List<Node> prevNodes = node.Value.getPrevious();
+                        List<Node> nextNodes = node.Value.getNext();
+
+                        if (prevNodes.Count > 0)
+                        {
+                            int prevVisitCount = 0;
+                            foreach (Node _pNode in prevNodes)
+                            {
+                                if (_pNode.getVisited())
+                                {
+                                    prevVisitCount++;
+                                }
+                            }
+                            if (prevVisitCount == prevNodes.Count)
+                            {
+                                visit--;
+                                node.Value.isVisited(true);
+                                Console.WriteLine(node.Key + ":: is visited");
+
+                                foreach (Node _nNode in nextNodes)
+                                {
+                                    if (_nNode.getVisited())
+                                    {
+                                        Console.WriteLine("FloodFill:: FALSE");
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            visit--;
+                            Console.WriteLine(node.Key + ":: is visited");
+                            node.Value.isVisited(true);
+                        }
+                    }
+                }
+                if (impossibleCircuit == visit)
+                {
+                    // nodes are not reachable
+                    Console.WriteLine("FLOODFILL:: FALSE");
+                    return false;
+                }
+            }
+            Console.WriteLine("FloodFill:: TRUE");
             return true;
         }
 
@@ -90,10 +145,10 @@ namespace DesignPatterns1
             }
             if (boolCount == nodes.Count)
             {
-                Console.WriteLine("every node is connected");
+                Console.WriteLine("NodeConnection:: TRUE");
                 return true;
             }
-            Console.WriteLine("not every node is connected");
+            Console.WriteLine("NodeConnection:: FALSE");
             return false;
         }
 

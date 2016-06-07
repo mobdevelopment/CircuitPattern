@@ -13,6 +13,7 @@ namespace DesignPatterns1.Nodes
         protected List<Node> next = new List<Node>();
         protected int counter = 0;
         protected int value = 0;
+        protected bool visited = false;
 
         protected Node()
         {
@@ -60,12 +61,21 @@ namespace DesignPatterns1.Nodes
 
         public List<Node> getPrevious()
         {
-            return previous;
+            return this.previous;
         }
 
         public List<Node> getNext()
         {
-            return next;
+            return this.next;
+        }
+
+        public bool getVisited()
+        {
+            return this.visited;
+        }
+        public void isVisited(bool _visit)
+        {
+            this.visited = _visit;
         }
     }
 }

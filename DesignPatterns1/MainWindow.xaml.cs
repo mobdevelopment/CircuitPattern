@@ -66,7 +66,7 @@ namespace DesignPatterns1
             DataContext = this;
         }
 
-        ////public ObserveableDictionary<String, Node> _CN { get; set; }
+        //public ObserveableDictionary<String, Node> _CN { get; set; }
 
         Dictionary<String, Node> circuitNodes;
 
