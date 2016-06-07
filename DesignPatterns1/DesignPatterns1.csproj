@@ -64,6 +64,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Circuit\Circuit.cs" />
+    <Compile Include="Circuit\CircuitNotifier.cs" />
     <Compile Include="Circuit\CircuitTester.cs" />
     <Compile Include="FactoryMethod.cs" />
     <Compile Include="FileReader.cs" />

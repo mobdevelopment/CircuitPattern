@@ -12,6 +12,8 @@ namespace DesignPatterns1.Nodes
         protected List<Node> previous = new List<Node>();
         protected List<Node> next = new List<Node>();
         protected int counter = 0;
+        protected bool visited = false;
+        protected bool calculated = false;
         protected int _value = 0;
         protected bool _visited = false;
 
@@ -30,9 +32,23 @@ namespace DesignPatterns1.Nodes
 
         public abstract void show();
            
-        public bool isCalculate(int rondecounter)
+        public bool canCalculate()
         {
-            return counter >= rondecounter;
+            foreach (Node prev in previous)
+            {
+                if (!(prev.isCalculated())) return false; // Cannot be shorted due to one true still doesn't mean it's actually true
+            }
+            return true;
+        }
+
+        public bool isCalculated()
+        { 
+            return calculated;
+        }
+
+        public void setCalculated()
+        {
+            this.calculated = true;
         }
 
         protected void addPrevious(Node node)

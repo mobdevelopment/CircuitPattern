@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns1.Nodes
 {
-    public class Probe : Node
+    public class Probe : Output
     {
         public Probe()
         {

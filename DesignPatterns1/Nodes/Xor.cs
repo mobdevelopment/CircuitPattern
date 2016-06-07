@@ -34,7 +34,8 @@ namespace DesignPatterns1.Nodes
             {
                 if (node.Value > 0) positives++;
             }
-            return (positives == 1) ? 1 : 0;
+            Value = (positives == 1) ? 1 : 0;
+            return Value;
         }
 
         public override void show()

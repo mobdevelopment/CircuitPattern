@@ -9,46 +9,30 @@ namespace DesignPatterns1
 {
     public class Circuit
     {
-        CircuitTester tester = new CircuitTester();
+        CircuitTester tester;
         
-        public Circuit(Dictionary<String, Node> _nodes)
+        public Circuit(Dictionary<String, Node> _n)
         {
-            //circuitNodes = Reader.getNodes();
-            this.Nodes = _nodes;
+            this.Nodes = _n;
+            tester = new CircuitTester();
         }
 
-
-
-        //private Dictionary<String, Node> circuitNodes = new Dictionary<String, Node>();
-
-
-        private Dictionary<String, Node> nodes;
-        public Dictionary<String, Node> Nodes
+        private Dictionary<String, Node> _nodes;
+        private Dictionary<String, Node> Nodes
         {
             get
             {
-                return nodes;
+                return _nodes;
             }
             set
             {
-                nodes = value;
+                _nodes = value;
             }
         }
 
-
-        //public Dictionary<String, Node> getCircuitNodes()
-        //{
-        //    return circuitNodes;
-        //}
-
-        //public void setCircuitNodes(Dictionary<String, Node> _CNodes)
-        //{
-        //    circuitNodes = _CNodes;
-        //}
-
         public Boolean validateCircuit()
         {
-            if (tester.CircuitTest(nodes))
+            if (tester.CircuitTest(Nodes))
             {
                 return true;
             } else
