@@ -35,7 +35,7 @@ namespace DesignPatterns1.Nodes
                 //{
                 //   return 0;
                 //}
-                if (node.getValue() == 0) return 0;
+                if (node.Value == 0) return 0;
             }
             return 1;
         }

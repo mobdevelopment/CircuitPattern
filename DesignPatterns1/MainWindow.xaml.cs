@@ -15,13 +15,14 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
 using DesignPatterns1.Nodes;
+using System.ComponentModel;
 
 namespace DesignPatterns1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window/*, INotifyPropertyChanged*/
     {
         FileReader reader;
         //Dictionary<String, Node> nodeMap;
@@ -48,12 +49,32 @@ namespace DesignPatterns1
         {
             Application.Current.Shutdown();
         }
-        public String CircuitCheck;
+
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        //private string _circuitCheck;
+        //public String CircuitCheck
+        //{
+        //    get { return _circuitCheck; }
+        //    set
+        //    {
+        //        if (value != _circuitCheck)
+        //        {
+        //            _circuitCheck = value;
+        //            OnPropertyChanged("CircuitCheck");
+        //        }
+        //    }
+        //}
+
+
+
+
         private void StartCircuit(object sender, RoutedEventArgs e)
         {
             //Console.WriteLine((sender as MenuItem).Header.ToString());
             Console.WriteLine("Start Circuit");
-            CircuitCheck = new string('a', 6);
+            //CircuitCheck = new string('a', 6);
 
         }
 

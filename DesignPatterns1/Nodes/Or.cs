@@ -31,7 +31,7 @@ namespace DesignPatterns1.Nodes
             // 1 1 = 1
             foreach (Node node in previous)
             {
-                if (node.getValue() > 0) return 1;
+                if (node.Value > 0) return 1;
             }
             return 0;
         }

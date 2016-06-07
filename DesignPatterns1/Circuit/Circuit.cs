@@ -11,12 +11,10 @@ namespace DesignPatterns1
     {
         CircuitTester tester = new CircuitTester();
         
-
         public Circuit(Dictionary<String, Node> _nodes)
         {
             //circuitNodes = Reader.getNodes();
             this.Nodes = _nodes;
-            
         }
 
 

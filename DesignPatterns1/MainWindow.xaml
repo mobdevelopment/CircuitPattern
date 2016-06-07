@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesignPatterns1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="400"
-        DataContext="{Binding Circuit}">
+        Title="MainWindow" Height="350" Width="400">
     
     <StackPanel>
         <StackPanel>

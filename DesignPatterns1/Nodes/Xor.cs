@@ -32,7 +32,7 @@ namespace DesignPatterns1.Nodes
             int positives = 0;
             foreach (Node node in previous)
             {
-                if (node.getValue() > 0) positives++;
+                if (node.Value > 0) positives++;
             }
             return (positives == 1) ? 1 : 0;
         }

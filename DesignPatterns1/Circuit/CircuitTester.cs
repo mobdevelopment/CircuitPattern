@@ -44,7 +44,7 @@ namespace DesignPatterns1
                 int impossibleCircuit = visit;
                 foreach (KeyValuePair<String, Node> node in nodes)
                 {
-                    if (!node.Value.getVisited())
+                    if (!node.Value.Visited)
                     {
                         List<Node> prevNodes = node.Value.getPrevious();
                         List<Node> nextNodes = node.Value.getNext();
@@ -54,7 +54,7 @@ namespace DesignPatterns1
                             int prevVisitCount = 0;
                             foreach (Node _pNode in prevNodes)
                             {
-                                if (_pNode.getVisited())
+                                if (_pNode.Visited)
                                 {
                                     prevVisitCount++;
                                 }
@@ -62,12 +62,12 @@ namespace DesignPatterns1
                             if (prevVisitCount == prevNodes.Count)
                             {
                                 visit--;
-                                node.Value.isVisited(true);
+                                node.Value.Visited = true;
                                 Console.WriteLine(node.Key + ":: is visited");
 
                                 foreach (Node _nNode in nextNodes)
                                 {
-                                    if (_nNode.getVisited())
+                                    if (_nNode.Visited)
                                     {
                                         Console.WriteLine("FloodFill:: FALSE");
                                         return false;
@@ -79,7 +79,7 @@ namespace DesignPatterns1
                         {
                             visit--;
                             Console.WriteLine(node.Key + ":: is visited");
-                            node.Value.isVisited(true);
+                            node.Value.Visited = true;
                         }
                     }
                 }
