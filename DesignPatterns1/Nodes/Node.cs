@@ -57,5 +57,15 @@ namespace DesignPatterns1.Nodes
         {
             return this.value;
         }
+
+        public List<Node> getPrevious()
+        {
+            return previous;
+        }
+
+        public List<Node> getNext()
+        {
+            return next;
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace DesignPatterns1
 {
     public class FileReader
     {
-        Circuit circuit = new Circuit();
+        Circuit circuit;
         // VALIDATE METHOD
         private Dictionary<String, Node> nodeMap = new Dictionary<String, Node>();
 
@@ -63,14 +63,15 @@ namespace DesignPatterns1
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: Could not read file from disk. Original error: " + ex.Message);
+                Console.WriteLine("SError: Could not read file from disk. Original error: " + ex.Message);
             }
             finally
             {
-                if (circuit.validateCircuit())
-                { 
-                    circuit.Nodes = getNodes();
-                }
+                circuit = new Circuit(getNodes());
+                bool a = circuit.validateCircuit();
+                //{ 
+                    //circuit.Nodes = getNodes();
+                //}
             }
         }
 
@@ -90,7 +91,7 @@ namespace DesignPatterns1
         {
             string nodeType = "";
 
-            int nodeTypeStart = line.IndexOf("	");
+            int nodeTypeStart = line.LastIndexOf("	");
             int nodeTypeEnd = line.IndexOf(";");
             if (nodeTypeStart > 0)
             {
@@ -102,7 +103,7 @@ namespace DesignPatterns1
         private void setNodeConnections(string line)
         {
             string[] nodeConnections;
-            int nodeConnectStart = line.IndexOf("	");
+            int nodeConnectStart = line.LastIndexOf("	");
             int nodeConnectEnd = line.IndexOf(";");
 
             if (nodeConnectStart > 0)

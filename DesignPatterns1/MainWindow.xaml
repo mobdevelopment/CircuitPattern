@@ -19,23 +19,23 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Node" Width="*" Binding="{Binding Path=Key}"></DataGridTextColumn>
                 
-                <DataGridTextColumn Header="Type" Width="*" Binding="{Binding Path=Value.getKey}"></DataGridTextColumn>
+                <!--<DataGridTextColumn Header="Type" Width="*" Binding="{Binding Path=Value.getKey}"></DataGridTextColumn>-->
                 
-                <DataGridTemplateColumn Header="Value" Width="*">
+                <!--<DataGridTemplateColumn Header="Value" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBox Text="{Binding InsertedValue}" IsReadOnly="False"></TextBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                </DataGridTemplateColumn>-->
                 
-                <DataGridTemplateColumn Header="Edit" Width="*">
+                <!--<DataGridTemplateColumn Header="Edit" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Save" Command="{Binding a}" Width="80"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                </DataGridTemplateColumn>-->
             </DataGrid.Columns>
         </DataGrid>
 

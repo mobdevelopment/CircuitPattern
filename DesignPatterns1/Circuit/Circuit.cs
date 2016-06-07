@@ -12,10 +12,10 @@ namespace DesignPatterns1
         CircuitTester tester = new CircuitTester();
         
 
-        public Circuit()
+        public Circuit(Dictionary<String, Node> _nodes)
         {
             //circuitNodes = Reader.getNodes();
-
+            this.Nodes = _nodes;
             
         }
 
@@ -50,7 +50,7 @@ namespace DesignPatterns1
 
         public Boolean validateCircuit()
         {
-            if (tester.FloodFill())
+            if (tester.CircuitTest(nodes))
             {
                 Console.WriteLine("Circuit is correctly build");
                 //foreach (KeyValuePair<string, Node> node in Nodes)
