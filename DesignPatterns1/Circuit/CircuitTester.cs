@@ -14,10 +14,15 @@ namespace DesignPatterns1
         // flood fill is primarily used for calculating the shortest route through a maze.
         // Do not know how to implement flood fill to the full adder
         // Do not kwow because the full adder had multiple beginnings and multiple endings
+        private static CircuitTester instance;
+        public static CircuitTester Instance()
+        {
+            if (instance == null)
+                instance = new CircuitTester();
+            return instance;
+        }
 
-        private Dictionary<String, Node> nodes = new Dictionary<String, Node>();
-
-        public CircuitTester()
+        private CircuitTester()
         {
         }
 

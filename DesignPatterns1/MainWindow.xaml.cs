@@ -25,11 +25,12 @@ namespace DesignPatterns1
     public partial class MainWindow : Window/*, INotifyPropertyChanged*/
     {
         FileReader reader;
-        //Dictionary<String, Node> nodeMap;
+        Circuit circuit;
 
         public MainWindow()
         {
             InitializeComponent();
+            circuit = Circuit.Instance();
         }
 
         private void OpenFile(object sender, RoutedEventArgs e)
@@ -41,8 +42,8 @@ namespace DesignPatterns1
                 Console.WriteLine("MainWindow - OpenFile:: File can be read");
                 reader = new FileReader(openFileDialog.FileName);
             }
-
-            loadNodeScreen();
+            if (openFileDialog.FileName != "")
+                loadNodeScreen();
         }
 
         private void ExitProgram(object sender, RoutedEventArgs e)
@@ -69,51 +70,42 @@ namespace DesignPatterns1
 
 
 
-
+        // inhoud moet naar circuit
         private void StartCircuit(object sender, RoutedEventArgs e)
         {
-            //Console.WriteLine((sender as MenuItem).Header.ToString());
-<<<<<<< HEAD
-            if (!(CircuitNodes.Count() > 0))
+            if (!(CircuitNodes != null))
             {
                 Console.WriteLine("Laad eerst een circuit in");
             } else
             {
                 Console.WriteLine("Start Circuit");
-                foreach (Node startPoint in CircuitNodes.Values)
-                {
-                    Type t = typeof(Input);
-                    if (!(startPoint is Input)) continue;
-
-                    Console.WriteLine(startPoint.getKey());
-                }
+                circuit.startCircuit();
                 Console.WriteLine("Circuit afgelopen");
             }
-=======
             Console.WriteLine("Start Circuit");
-            //CircuitCheck = new string('a', 6);
 
->>>>>>> 494151e3a18c28316699fe0a70871de9b403ba44
         }
-
+        // alles moet naar circuit notifier
         private void loadNodeScreen()
         {
-            circuitNodes = reader.getNodes();
-
-            foreach (KeyValuePair<string, Node> node in CircuitNodes)
-            {
-                Console.WriteLine(node.Key);
-            }
-            DataContext = this;
+            DataContext = circuit;
+            circuit.loadScreen();
         }
 
         //public ObserveableDictionary<String, Node> _CN { get; set; }
-
-        Dictionary<String, Node> circuitNodes;
+        // verplaatsen
+        private Dictionary<String, Node> _circuitNodes;
 
         public Dictionary<String, Node> CircuitNodes
         {
-            get { return this.circuitNodes; }
+            get
+            {
+                return this._circuitNodes;
+            }
+            set
+            {
+                this._circuitNodes = value;
+            }
 
         }
     }

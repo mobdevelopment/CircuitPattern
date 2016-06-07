@@ -10,15 +10,23 @@ namespace DesignPatterns1
     public class Circuit
     {
         CircuitTester tester;
-        
-        public Circuit(Dictionary<String, Node> _n)
+
+        private static Circuit instance;
+        public static Circuit Instance()
         {
-            this.Nodes = _n;
-            tester = new CircuitTester();
+            if (instance == null)
+                instance = new Circuit();
+            
+            return instance;
+        }
+
+        private Circuit()
+        {
+            tester = CircuitTester.Instance();
         }
 
         private Dictionary<String, Node> _nodes;
-        private Dictionary<String, Node> Nodes
+        public Dictionary<String, Node> Nodes
         {
             get
             {
@@ -38,6 +46,25 @@ namespace DesignPatterns1
             } else
             {
                 return false;
+            }
+        }
+
+        public void loadScreen()
+        {
+            foreach (KeyValuePair<string, Node> node in Nodes)
+            {
+                Console.WriteLine("onscreen:: " + node.Key);
+            }
+        }
+
+        public void startCircuit()
+        {
+            foreach (Node startPoint in Nodes.Values)
+            {
+                Type t = typeof(Input);
+                if (!(startPoint is Input)) continue;
+
+                Console.WriteLine(startPoint.getKey());
             }
         }
     }

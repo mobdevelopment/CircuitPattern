@@ -68,7 +68,8 @@ namespace DesignPatterns1
             }
             finally
             {
-                circuit = new Circuit(getNodes());
+                circuit = Circuit.Instance();
+                circuit.Nodes = getNodes();
                 bool a = circuit.validateCircuit();
             }
         }
@@ -124,6 +125,11 @@ namespace DesignPatterns1
             }
         }
 
+        public String[] getNodeConnections()
+        {
+            return nodeConn;
+        }
+
         public Dictionary<String, Node> getNodes()
         {
             return nodeMap;
@@ -133,9 +139,5 @@ namespace DesignPatterns1
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public String[] getNodeConnections()
-        {
-            return nodeConn;
-        }
     }
 }

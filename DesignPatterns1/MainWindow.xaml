@@ -17,7 +17,7 @@
         <TextBlock Name="validCircuit" Text="{Binding Path=CircuitCheck}" Height="25" Margin="0,0,0,0" />
         </StackPanel>
         <StackPanel>
-            <DataGrid x:Name="dataGrid" VerticalAlignment="Top" ItemsSource="{Binding Path=CircuitNodes}">
+            <DataGrid x:Name="dataGrid" VerticalAlignment="Top" ItemsSource="{Binding Path=Nodes}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Node" Width="*" Binding="{Binding Path=Key}"></DataGridTextColumn>
                 
