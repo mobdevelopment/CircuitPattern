@@ -67,5 +67,18 @@ namespace DesignPatterns1
                 Console.WriteLine(startPoint.getKey());
             }
         }
+
+        private bool _validCircuit;
+        public bool ValidCircuit
+        {
+            get
+            {
+                return _validCircuit;
+            }
+            set
+            {
+                _validCircuit = value;
+            }
+        }
     }
 }

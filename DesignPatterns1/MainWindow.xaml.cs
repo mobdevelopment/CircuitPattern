@@ -22,7 +22,7 @@ namespace DesignPatterns1
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window/*, INotifyPropertyChanged*/
+    public partial class MainWindow : Window
     {
         FileReader reader;
         Circuit circuit;
@@ -30,6 +30,7 @@ namespace DesignPatterns1
         public MainWindow()
         {
             InitializeComponent();
+            reader = FileReader.Instance();
             circuit = Circuit.Instance();
         }
 
@@ -40,7 +41,7 @@ namespace DesignPatterns1
 
             if (openFileDialog.ShowDialog() == true) {
                 Console.WriteLine("MainWindow - OpenFile:: File can be read");
-                reader = new FileReader(openFileDialog.FileName);
+                reader.readCircuitFile(openFileDialog.FileName);
             }
             if (openFileDialog.FileName != "")
                 loadNodeScreen();
@@ -51,26 +52,6 @@ namespace DesignPatterns1
             Application.Current.Shutdown();
         }
 
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //private string _circuitCheck;
-        //public String CircuitCheck
-        //{
-        //    get { return _circuitCheck; }
-        //    set
-        //    {
-        //        if (value != _circuitCheck)
-        //        {
-        //            _circuitCheck = value;
-        //            OnPropertyChanged("CircuitCheck");
-        //        }
-        //    }
-        //}
-
-
-
-        // inhoud moet naar circuit
         private void StartCircuit(object sender, RoutedEventArgs e)
         {
             if (!(CircuitNodes != null))
@@ -85,15 +66,13 @@ namespace DesignPatterns1
             Console.WriteLine("Start Circuit");
 
         }
-        // alles moet naar circuit notifier
+
         private void loadNodeScreen()
         {
             DataContext = circuit;
             circuit.loadScreen();
         }
 
-        //public ObserveableDictionary<String, Node> _CN { get; set; }
-        // verplaatsen
         private Dictionary<String, Node> _circuitNodes;
 
         public Dictionary<String, Node> CircuitNodes

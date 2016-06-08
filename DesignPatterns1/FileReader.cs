@@ -8,11 +8,25 @@ namespace DesignPatterns1
 {
     public class FileReader : INotifyPropertyChanged
     {
+        FileReader reader;
         Circuit circuit;
         // VALIDATE METHOD
         private Dictionary<String, Node> nodeMap = new Dictionary<String, Node>();
 
-        public FileReader(String fileName)
+        private static FileReader instance;
+        public static FileReader Instance()
+        {
+            if (instance == null)
+                instance = new FileReader();
+
+            return instance;
+        }
+
+        private FileReader()
+        {
+        }
+
+        public void readCircuitFile(String fileName)
         {
             try
             {
@@ -24,7 +38,7 @@ namespace DesignPatterns1
                     int i = 0;
                     while ((line = file.ReadLine()) != null)
                     {
-                        Console.WriteLine(i + ":: " +line);
+                        Console.WriteLine(i + ":: " + line);
                         i++;
                         if (!connectNode)
                         {
@@ -70,7 +84,7 @@ namespace DesignPatterns1
             {
                 circuit = Circuit.Instance();
                 circuit.Nodes = getNodes();
-                bool a = circuit.validateCircuit();
+                circuit.ValidCircuit = circuit.validateCircuit();
             }
         }
 
