@@ -22,7 +22,7 @@ namespace DesignPatterns1
             return instance;
         }
 
-        private CircuitTester()
+        public CircuitTester()
         {
         }
 
