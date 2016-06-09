@@ -10,7 +10,7 @@ namespace DesignPatterns1.Nodes
     {
         public Input()
         {
-
+            calculated = true;
         }
     }
 }

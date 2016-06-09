@@ -16,7 +16,7 @@ namespace DesignPatterns1
         {
             if (instance == null)
                 instance = new Circuit();
-            
+
             return instance;
         }
 
@@ -43,7 +43,8 @@ namespace DesignPatterns1
             if (tester.CircuitTest(Nodes))
             {
                 return true;
-            } else
+            }
+            else
             {
                 return false;
             }
@@ -59,12 +60,21 @@ namespace DesignPatterns1
 
         public void startCircuit()
         {
-            foreach (Node startPoint in Nodes.Values)
+            walk();
+            /*foreach (Node startPoint in Nodes.Values)
             {
                 Type t = typeof(Input);
                 if (!(startPoint is Input)) continue;
 
                 Console.WriteLine(startPoint.getKey());
+            }*/
+        }
+
+        public void walk()
+        {
+            foreach (Node node in Nodes.Values)
+            {
+                if (node is Input) step(node);
             }
         }
 
@@ -79,6 +89,41 @@ namespace DesignPatterns1
             {
                 _validCircuit = value;
             }
+        }
+        public void step(Node node)
+        {
+            while ((node.getPrevious().Count() > 0) || (node.getNext().Count() > 0))
+            {
+                if (!node.isCalculated() || node is Input)
+                {
+                    foreach (Node prev in node.getPrevious())
+                    {
+                        if (prev is Calculatable)
+                        {
+                            Calculatable Prev = (Calculatable) prev;
+                            if (Prev.canCalculate())
+                            {
+                                Prev.calculate();
+                                Console.WriteLine("Calculated: " + Prev.getKey());
+                            }
+                        }
+                    }
+
+                    foreach (Node next in node.getNext())
+                    {
+                        if (next is Calculatable)
+                        {
+                            Calculatable Next = (Calculatable)next;
+                            if (Next.canCalculate())
+                            {
+                                Next.calculate();
+                                Console.WriteLine("Calculated: " + Next.getKey());
+                            }
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(Nodes);
         }
     }
 }

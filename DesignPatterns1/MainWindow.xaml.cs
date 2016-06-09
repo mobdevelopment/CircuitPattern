@@ -54,7 +54,7 @@ namespace DesignPatterns1
 
         private void StartCircuit(object sender, RoutedEventArgs e)
         {
-            if (!(CircuitNodes != null))
+            if (!(CircuitNodes == null))
             {
                 Console.WriteLine("Laad eerst een circuit in");
             } else
@@ -63,7 +63,6 @@ namespace DesignPatterns1
                 circuit.startCircuit();
                 Console.WriteLine("Circuit afgelopen");
             }
-            Console.WriteLine("Start Circuit");
 
         }
 

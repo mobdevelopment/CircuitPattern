@@ -36,7 +36,7 @@ namespace DesignPatterns1.Nodes
         {
             foreach (Node prev in previous)
             {
-                if (!(prev.isCalculated())) return false; // Cannot be shorted due to one true still doesn't mean it's actually true
+                if (!prev.isCalculated()) return false; // Cannot be shorted due to one true still doesn't mean it's actually true
             }
             return true;
         }

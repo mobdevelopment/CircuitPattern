@@ -8,6 +8,7 @@ namespace DesignPatterns1.Nodes
 {
     public class InputLow : Input
     {
+
         public InputLow()
         {
 
