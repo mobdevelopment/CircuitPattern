@@ -73,8 +73,8 @@ namespace DesignPatterns1
                         int nVal = Convert.ToInt32(dialog.ResponseText);
                         if (nVal > 1)
                             n.Value = 0;
-
-                        n.Value = nVal;
+                        else
+                            n.Value = nVal;
                     }
                 }
             }
