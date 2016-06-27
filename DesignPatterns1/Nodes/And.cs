@@ -34,6 +34,7 @@ namespace DesignPatterns1.Nodes
             {
                 if (node.Value == 0) Value = 0;
             }
+            setCalculated();
             return Value;
         }
 

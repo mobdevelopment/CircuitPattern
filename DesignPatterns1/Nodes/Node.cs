@@ -12,10 +12,11 @@ namespace DesignPatterns1.Nodes
         protected List<Node> previous = new List<Node>();
         protected List<Node> next = new List<Node>();
         protected int counter = 0;
-        protected bool visited = false;
+        //protected bool visited = false;
         protected bool calculated = false;
         protected int _value = 0;
         protected bool _visited = false;
+        protected string _name;
 
         protected Node()
         {
@@ -101,6 +102,18 @@ namespace DesignPatterns1.Nodes
             set
             {
                 _visited = value;
+            }
+        }
+ 
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
             }
         }
     }

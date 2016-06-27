@@ -6,9 +6,9 @@ using System.ComponentModel;
 
 namespace DesignPatterns1
 {
-    public class FileReader : INotifyPropertyChanged
+    public class FileReader
     {
-        FileReader reader;
+        //FileReader reader;
         Circuit circuit;
         // VALIDATE METHOD
         private Dictionary<String, Node> nodeMap = new Dictionary<String, Node>();
@@ -28,6 +28,10 @@ namespace DesignPatterns1
 
         public void readCircuitFile(String fileName)
         {
+            if(nodeMap.Count > 0)
+            {
+                nodeMap.Clear();
+            }
             try
             {
                 using (StreamReader file = new StreamReader(fileName))
@@ -38,7 +42,8 @@ namespace DesignPatterns1
                     int i = 0;
                     while ((line = file.ReadLine()) != null)
                     {
-                        Console.WriteLine(i + ":: " + line);
+                        // Print file line content
+                        //Console.WriteLine(i + ":: " + line);
                         i++;
                         if (!connectNode)
                         {
@@ -83,6 +88,11 @@ namespace DesignPatterns1
             finally
             {
                 circuit = Circuit.Instance();
+                //if (circuit.Nodes != null)
+                //{
+                //    // circuit.Nodes is filled with previous circuit. Clear old circuit data.
+                //    circuit.Nodes.Clear();
+                //}
                 circuit.Nodes = getNodes();
                 circuit.ValidCircuit = circuit.validateCircuit();
             }
@@ -151,7 +161,7 @@ namespace DesignPatterns1
 
         string[] nodeConn;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
     }
 }

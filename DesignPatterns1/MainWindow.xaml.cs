@@ -36,6 +36,11 @@ namespace DesignPatterns1
 
         private void OpenFile(object sender, RoutedEventArgs e)
         {
+            if(CircuitNodes != null)
+            {
+                // CircuitNodes is filled with previous circuit. Clear old circuit data .
+                CircuitNodes.Clear();
+            }
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
 
@@ -44,7 +49,13 @@ namespace DesignPatterns1
                 reader.readCircuitFile(openFileDialog.FileName);
             }
             if (openFileDialog.FileName != "")
-                loadNodeScreen();
+            {
+                //loadNodeScreen();
+                if(reader.getNodes() != null)
+                {
+                    CircuitNodes = reader.getNodes();
+                }
+            }
         }
 
         private void ExitProgram(object sender, RoutedEventArgs e)
@@ -54,16 +65,24 @@ namespace DesignPatterns1
 
         private void StartCircuit(object sender, RoutedEventArgs e)
         {
-            if (!(CircuitNodes == null))
+            if (CircuitNodes == null)
             {
                 Console.WriteLine("Laad eerst een circuit in");
-            } else
-            {
-                Console.WriteLine("Start Circuit");
-                circuit.startCircuit();
-                Console.WriteLine("Circuit afgelopen");
             }
-
+            else
+            {
+                if (circuit.ValidCircuit)
+                {
+                    Console.WriteLine("Start Circuit");
+                    circuit.inputValue();
+                    circuit.startCircuit();
+                    Console.WriteLine("Circuit afgelopen");
+                }
+                else
+                {
+                    Console.WriteLine("This circuit can't run, it contains an error!");
+                }
+            }
         }
 
         private void loadNodeScreen()

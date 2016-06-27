@@ -58,6 +58,38 @@ namespace DesignPatterns1
             }
         }
 
+        public void inputValue()
+        {
+            Console.WriteLine("Your Input Nodes need a value please enter a 0 or 1 followed by enter.");
+            foreach (Node n in Nodes.Values)
+            {
+
+                if (n.getKey().Contains("INPUT"))
+                {
+                    Console.Write("Enter a value for " + n.getKey() + ": ");
+                    Console.WriteLine(n.Value);
+                    //string input;
+                    //input = Console.ReadLine();
+
+                    //if(input == "1" || input == "0")
+                    //{
+
+                    //}
+
+                    //while(input != 0 || input != 1)
+                    //{
+                    //    input = Convert.ToInt32(Console.ReadLine());
+
+                    //    if(input != 0 || input != 1)
+                    //    {
+                    //        Console.Write("Please enter (1 of 0): ");
+                    //    }
+                    //}
+                    //Console.WriteLine("Please ");
+                }
+            }
+        }
+
         public void startCircuit()
         {
             walk();
@@ -70,11 +102,22 @@ namespace DesignPatterns1
             }*/
         }
 
-        public void walk()
+        private void resetVisited()
         {
             foreach (Node node in Nodes.Values)
             {
-                if (node is Input) step(node);
+                node.Visited = false;
+            }
+        }
+
+        public void walk()
+        {
+            resetVisited();
+            foreach (Node node in Nodes.Values)
+            {
+                if (node is Input) node.Visited = true; /*step(node);*/
+                step(node);
+                printCircuit();
             }
         }
 
@@ -92,38 +135,42 @@ namespace DesignPatterns1
         }
         public void step(Node node)
         {
-            while ((node.getPrevious().Count() > 0) || (node.getNext().Count() > 0))
-            {
-                if (!node.isCalculated() || node is Input)
-                {
-                    foreach (Node prev in node.getPrevious())
-                    {
-                        if (prev is Calculatable)
-                        {
-                            Calculatable Prev = (Calculatable) prev;
-                            if (Prev.canCalculate())
-                            {
-                                Prev.calculate();
-                                Console.WriteLine("Calculated: " + Prev.getKey());
-                            }
-                        }
-                    }
+            Console.WriteLine("Step:: " + node.Name + " - " + node.getKey());
 
-                    foreach (Node next in node.getNext())
+            foreach (Node next in node.getNext())
+            {
+                if (next is Calculatable && !next.isCalculated())
+                {
+                    Calculatable Next = (Calculatable)next;
+                    if(Next.canCalculate())
                     {
-                        if (next is Calculatable)
-                        {
-                            Calculatable Next = (Calculatable)next;
-                            if (Next.canCalculate())
-                            {
-                                Next.calculate();
-                                Console.WriteLine("Calculated: " + Next.getKey());
-                            }
-                        }
+                        Next.calculate();
+                        Next.Visited = true;
+                        Console.WriteLine("Calculated: " + Next.Name + " - " + Next.getKey() + ", value = " + Next.Value + ", visited = " + Next.Visited);
                     }
                 }
+                else if (next is Output)
+                {
+                    next.Value = node.Value;
+                    Console.WriteLine("Calculated: " + next.Name + " - " + next.getKey() + ", value = " + next.Value);
+                }
             }
-            Console.WriteLine(Nodes);
+        }
+
+        public void printCircuit()
+        {
+            foreach(Node node in Nodes.Values)
+            {
+                if (node.isCalculated())
+                {
+                    Console.WriteLine("Node: " + node.Name + ", Type: " + node.getKey() + ", Value: " + node.Value);
+                }
+                else
+                {
+                    Console.WriteLine("Node: " + node.Name + ", Type: " + node.getKey() + ", Value: /");
+                }
+            }
+            Console.WriteLine();
         }
     }
 }

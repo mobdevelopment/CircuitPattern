@@ -29,6 +29,7 @@ namespace DesignPatterns1.Nodes
             // 1 = 0
      
             this.Value = (previous.First().Value >= 1) ? 0 : 1;
+            setCalculated();
             return Value;
         }
 

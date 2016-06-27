@@ -68,7 +68,8 @@ namespace DesignPatterns1
                             {
                                 visit--;
                                 node.Value.Visited = true;
-                                Console.WriteLine(node.Key + ":: is visited");
+                                // Shows the nodes which are visited
+                                //Console.WriteLine(node.Key + ":: is visited");
 
                                 foreach (Node _nNode in nextNodes)
                                 {
@@ -83,7 +84,8 @@ namespace DesignPatterns1
                         else
                         {
                             visit--;
-                            Console.WriteLine(node.Key + ":: is visited");
+                            // Shows the nodes which are visited
+                            //Console.WriteLine(node.Key + ":: is visited");
                             node.Value.Visited = true;
                         }
                     }
@@ -104,6 +106,7 @@ namespace DesignPatterns1
             int boolCount = 0;
             foreach(KeyValuePair<String, Node> node in nodes)
             {
+                node.Value.Name = node.Key;
                 bool nodeConn = false;
                 List<Node> prevNodes = node.Value.getPrevious();
                 List<Node> nextNodes = node.Value.getNext();
