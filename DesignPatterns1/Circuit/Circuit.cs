@@ -129,9 +129,11 @@ namespace DesignPatterns1
 
             foreach (Node next in node.getNext())
             {
+                // check if nodes next is calculatable and not already calculated
                 if (next is Calculatable && !next.isCalculated())
                 {
                     Calculatable Next = (Calculatable)next;
+                    // check if the nodes next can be calculated
                     if(Next.canCalculate())
                     {
                         Next.calculate();
@@ -151,6 +153,7 @@ namespace DesignPatterns1
 
         public void printCircuit()
         {
+            // print the node information
             foreach(Node node in Nodes.Values)
             {
                 if ((node.isCalculated() || node is Probe) && node.Visited)

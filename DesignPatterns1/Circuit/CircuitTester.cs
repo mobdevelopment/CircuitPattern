@@ -28,8 +28,9 @@ namespace DesignPatterns1
 
         public Boolean CircuitTest(Dictionary<String, Node> nodes)
         {
+            // floodfill test
             bool floodTest = FloodFill(nodes);
-
+            // connection test
             bool connectTest = NodeConnection(nodes);
 
             if(floodTest && connectTest)
@@ -43,12 +44,15 @@ namespace DesignPatterns1
 
         public Boolean FloodFill(Dictionary<String, Node> nodes)
         {
+            // check if the circuit doesn't contain dead ends or loops
             int visit = nodes.Count();
             while (visit > 0)
             {
+                // counter for dead end and loops
                 int impossibleCircuit = visit;
                 foreach (KeyValuePair<String, Node> node in nodes)
                 {
+                    // if a node isn't already visited
                     if (!node.Value.Visited)
                     {
                         List<Node> prevNodes = node.Value.getPrevious();
@@ -103,6 +107,7 @@ namespace DesignPatterns1
 
         private Boolean NodeConnection(Dictionary<String, Node> nodes)
         {
+            // check if all nodes are correctly connected to oneanother
             int boolCount = 0;
             foreach(KeyValuePair<String, Node> node in nodes)
             {

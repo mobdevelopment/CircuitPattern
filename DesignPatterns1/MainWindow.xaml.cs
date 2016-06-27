@@ -29,6 +29,7 @@ namespace DesignPatterns1
 
         public MainWindow()
         {
+            // initialize instances
             InitializeComponent();
             reader = FileReader.Instance();
             circuit = Circuit.Instance();
@@ -36,11 +37,13 @@ namespace DesignPatterns1
 
         private void OpenFile(object sender, RoutedEventArgs e)
         {
+            // check if there are nodes loaded
             if(CircuitNodes != null)
             {
                 // CircuitNodes is filled with previous circuit. Clear old circuit data .
                 CircuitNodes.Clear();
             }
+            // file chooses
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
 
@@ -53,6 +56,7 @@ namespace DesignPatterns1
                 //loadNodeScreen();
                 if(reader.getNodes() != null)
                 {
+                    // set nodes from the file reader
                     CircuitNodes = reader.getNodes();
                 }
             }
@@ -60,21 +64,26 @@ namespace DesignPatterns1
 
         private void ExitProgram(object sender, RoutedEventArgs e)
         {
+            // exit the application
             Application.Current.Shutdown();
         }
 
         private void StartCircuit(object sender, RoutedEventArgs e)
         {
+            // check to see if an circuit is loaded
             if (CircuitNodes == null)
             {
                 Console.WriteLine("Laad eerst een circuit in");
             }
             else
             {
+                //start circuit if circuit is runnable
                 if (circuit.ValidCircuit)
                 {
                     Console.WriteLine("Start Circuit");
+                    // ask for Input nodes inputs
                     circuit.inputValue();
+                    // run circuit
                     circuit.startCircuit();
                     Console.WriteLine("Circuit afgelopen");
                 }
@@ -84,15 +93,16 @@ namespace DesignPatterns1
                 }
             }
         }
-
+        // method is outdated
         private void loadNodeScreen()
         {
+            //load the screen with data
             DataContext = circuit;
             circuit.loadScreen();
         }
 
         private Dictionary<String, Node> _circuitNodes;
-
+        // collection of nodes
         public Dictionary<String, Node> CircuitNodes
         {
             get

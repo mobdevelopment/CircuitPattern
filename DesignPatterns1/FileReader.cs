@@ -53,6 +53,7 @@ namespace DesignPatterns1
                                 string nodeName = getNodeName(line);
                                 // Get Node type
                                 string nodeType = getNodeType(line);
+                                // create node in factory and add to dictionary
                                 nodeMap.Add(nodeName, Node.create(nodeType));
                             }
                             else if (line == String.Empty)
