@@ -66,26 +66,16 @@ namespace DesignPatterns1
 
                 if (n.getKey().Contains("INPUT"))
                 {
-                    Console.Write("Enter a value for " + n.getKey() + ": ");
-                    Console.WriteLine(n.Value);
-                    //string input;
-                    //input = Console.ReadLine();
+                    Console.WriteLine("Enter a value for " + n.getKey() + ": ");
+                    var dialog = new InputDialog();
+                    if (dialog.ShowDialog() == true)
+                    {
+                        int nVal = Convert.ToInt32(dialog.ResponseText);
+                        if (nVal > 1)
+                            n.Value = 0;
 
-                    //if(input == "1" || input == "0")
-                    //{
-
-                    //}
-
-                    //while(input != 0 || input != 1)
-                    //{
-                    //    input = Convert.ToInt32(Console.ReadLine());
-
-                    //    if(input != 0 || input != 1)
-                    //    {
-                    //        Console.Write("Please enter (1 of 0): ");
-                    //    }
-                    //}
-                    //Console.WriteLine("Please ");
+                        n.Value = nVal;
+                    }
                 }
             }
         }
@@ -135,7 +125,7 @@ namespace DesignPatterns1
         }
         public void step(Node node)
         {
-            Console.WriteLine("Step:: " + node.Name + " - " + node.getKey());
+            //Console.WriteLine("Step:: " + node.Name + " - " + node.getKey());
 
             foreach (Node next in node.getNext())
             {
@@ -146,7 +136,7 @@ namespace DesignPatterns1
                     {
                         Next.calculate();
                         Next.Visited = true;
-                        Console.WriteLine("Calculated: " + Next.Name + " - " + Next.getKey() + ", value = " + Next.Value + ", visited = " + Next.Visited);
+                        //Console.WriteLine("Calculated: " + Next.Name + " - " + Next.getKey() + ", value = " + Next.Value + ", visited = " + Next.Visited);
                         step(Next);
                     }
                 }
@@ -154,7 +144,7 @@ namespace DesignPatterns1
                 {
                     next.Value = node.Value;
                     next.Visited = true;
-                    Console.WriteLine("Calculated: " + next.Name + " - " + next.getKey() + ", value = " + next.Value);
+                    //Console.WriteLine("Calculated: " + next.Name + " - " + next.getKey() + ", value = " + next.Value);
                 }
             }
         }

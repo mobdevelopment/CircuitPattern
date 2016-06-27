@@ -43,3 +43,5 @@ D:\Git\Assessment_B11\CircuitPattern\DesignPatterns1\obj\Debug\MainWindow.baml
 D:\Git\Assessment_B11\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.g.resources
 D:\Git\Assessment_B11\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.Properties.Resources.resources
 D:\Git\Assessment_B11\CircuitPattern\DesignPatterns1\obj\Debug\DesignPatterns1.csproj.GenerateResource.Cache
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\InputDialog.g.cs
+C:\Users\mikes\Documents\Git\CircuitPattern\DesignPatterns1\obj\Debug\InputDialog.baml
