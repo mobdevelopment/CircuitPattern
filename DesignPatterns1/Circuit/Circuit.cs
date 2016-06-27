@@ -147,11 +147,13 @@ namespace DesignPatterns1
                         Next.calculate();
                         Next.Visited = true;
                         Console.WriteLine("Calculated: " + Next.Name + " - " + Next.getKey() + ", value = " + Next.Value + ", visited = " + Next.Visited);
+                        step(Next);
                     }
                 }
-                else if (next is Output)
+                else if (next is Output && node.isCalculated())
                 {
                     next.Value = node.Value;
+                    next.Visited = true;
                     Console.WriteLine("Calculated: " + next.Name + " - " + next.getKey() + ", value = " + next.Value);
                 }
             }
@@ -161,7 +163,7 @@ namespace DesignPatterns1
         {
             foreach(Node node in Nodes.Values)
             {
-                if (node.isCalculated())
+                if ((node.isCalculated() || node is Probe) && node.Visited)
                 {
                     Console.WriteLine("Node: " + node.Name + ", Type: " + node.getKey() + ", Value: " + node.Value);
                 }
